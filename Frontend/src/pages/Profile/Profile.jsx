@@ -1,16 +1,28 @@
-import DashboardLayout from "../../layouts/DashboardLayout"
+import { useState } from "react";
+import DashboardLayout from "../../layouts/DashboardLayout";
+import ProfileHeader from "../../components/profile/ProfileHeader";
+import ProfileTabs from "../../components/profile/ProfileTabs";
+import ProfileContent from "../../components/profile/ProfileContent";
 
 const Profile = () => {
-  return (
-    <div>
-      <DashboardLayout>
-        <div className="p-6">
-          <h1 className="text-3xl font-bold">Profile Page</h1>
-          <p className="mt-2">This is the profile page of the Bookies application.</p>
-        </div>
-      </DashboardLayout>
-    </div>
-  )
-}
+  const [activeTab, setActiveTab] = useState("Posts");
 
-export default Profile
+  return (
+    <DashboardLayout>
+      <div className="h-full flex flex-col">
+        <ProfileHeader />
+
+        <ProfileTabs
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+
+        <div className="flex-1 overflow-y-auto">
+          <ProfileContent activeTab={activeTab} />
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+};
+
+export default Profile;

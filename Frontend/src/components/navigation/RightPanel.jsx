@@ -1,8 +1,14 @@
+import CreatePost from "../social/CreatePost";
+import ExchangeWidget from "./ExchangeWidget";
+import TrendingBooks from "./TrendingBooks";
+
 const RightPanel = () => {
   return (
-    <aside className="w-[500px] p-4">
-      <div className="border-2 border-black p-3">
-        Right Panel
+    <aside className="w-[420px] bg-[#F5EAD7] border-l-2 border-black/70">
+      <div className="p-5 space-y-5 h-full overflow-y-auto">
+        <CreatePost />
+        <ExchangeWidget />
+        <TrendingBooks />
       </div>
     </aside>
   );
