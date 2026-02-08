@@ -1,4 +1,4 @@
-import { Heart, MessageCircle } from "lucide-react";
+import { Heart, MessageCircle, Bookmark } from "lucide-react";
 
 const PostCard = () => {
   return (
@@ -14,14 +14,27 @@ const PostCard = () => {
           <p className="text-xs text-black/60">2 hours ago</p>
         </div>
 
-        <button className="px-2 text-xl font-bold text-black/70 hover:text-black transition">
-          ⋯
-        </button>
+        <div className="flex gap-3">
+          <button className="px-3 py-1 text-sm font-semibold text-black border-2 border-black rounded-xl bg-white hover:bg-orange-100 transition">
+            Follow
+          </button>
+
+          <button className="px-2 text-xl font-bold text-black/70 hover:text-black transition">
+            ⋯
+          </button>
+        </div>
       </div>
 
       {/* Body: image + actions right */}
       <div className="mt-4 flex gap-3">
-        <div className="flex-1 border-2 border-black rounded-2xl overflow-hidden bg-[#F3DFC8] h-[580px]">
+        {/* Image container */}
+        <div className="relative flex-1 border-2 border-black rounded-2xl overflow-hidden bg-[#F3DFC8] h-[580px]">
+          
+          {/* Softer Exchange Tag */}
+          <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold rounded-full bg-[#FFF7E6]/70 text-black/80 shadow-sm border border-black/20">
+            Exchange Available
+          </span>
+
           <img
             src="https://i.pinimg.com/736x/4e/54/46/4e5446a6578050139f003f20d860f06a.jpg"
             alt="Dummy"
@@ -30,14 +43,19 @@ const PostCard = () => {
         </div>
 
         {/* Actions */}
-        <div className="w-14 flex flex-col items-center gap-4">
-          <button className="w-12 h-12 border-2 border-black rounded-2xl bg-[#FFF7E6] hover:bg-red-100 transition flex flex-col items-center justify-center">
-            <Heart size={20} className="text-black" />
+        <div className="w-14 flex flex-col items-center justify-center gap-8">
+          <button className="w-12 h-12 rounded-2xl bg-[#FFF7E6] hover:bg-red-100 transition flex flex-col items-center justify-center">
+            <Heart size={50} className="text-black" />
             <span className="text-[10px] font-bold mt-1 text-black">24</span>
           </button>
 
-          <button className="w-12 h-12 border-2 border-black rounded-2xl bg-[#FFF7E6] hover:bg-orange-100 transition flex flex-col items-center justify-center">
-            <MessageCircle size={20} className="text-black" />
+          <button className="w-12 h-12 rounded-2xl bg-[#FFF7E6] hover:bg-orange-100 transition flex flex-col items-center justify-center">
+            <MessageCircle size={50} className="text-black" />
+            <span className="text-[10px] font-bold mt-1 text-black">6</span>
+          </button>
+
+          <button className="w-12 h-12 rounded-2xl bg-[#FFF7E6] hover:bg-orange-100 transition flex flex-col items-center justify-center">
+            <Bookmark size={50} className="text-black" />
             <span className="text-[10px] font-bold mt-1 text-black">6</span>
           </button>
         </div>
